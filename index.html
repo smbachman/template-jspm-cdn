@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>template (jspm,cdn,etc.)</title>
+</head>
+<body>
+    <div id="ui"></div>
+    <script src="https://jspm.io/system@0.19.js"></script>   
+    <script src="config.js"></script>
+    <script>
+        System.import('src/consoleToastr')
+          .then(function () {
+            return System.import('src/main');
+          })       
+          .then(function () {
+            return System.import('src/tests');
+          })            
+          .catch(function(err) {
+            console.error(err.stack);
+          });
+    </script>      
+</body>
+</html>
